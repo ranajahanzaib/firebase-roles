@@ -1,8 +1,39 @@
-# Project Title
+# Firebase Roles CLI
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
-This is another Open Source Project.
+A standalone CLI tool to assign Firebase custom roles to users using a service account key.
+
+## Features
+
+- Assign roles like `admin` or custom roles to Firebase Authentication users.
+- Works via service account credentials.
+- Lightweight and secure; no server or cloud function required.
+- Supports multiple roles per user (optional).
+
+## Installation
+
+Build the CLI from source (Go required):
+
+```bash
+git clone https://github.com/ranajahanzaib/firebase-roles.git
+cd firebase-roles
+go build -o firebase-roles main.go
+```
+
+### Usage
+
+```
+./firebase-roles --service-account=serviceAccountKey.json --uid=USER_UID --role=admin
+
+  --service-account: Path to your Firebase service account JSON key.
+  --uid: UID of the Firebase user to assign the role.
+  --role: Role to assign (e.g., admin). Can be used multiple times if supported.
+
+Example:
+
+./firebase-roles --service-account=serviceAccountKey.json --uid=abc123 --role=admin --role=moderator
+```
 
 ## Contributing
 
